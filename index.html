@@ -17,7 +17,7 @@
         <select name="size" id="size" class="form-control">
           <option value="small">Small</option>
           <option value="medium">Medium</option>
-          <option value="large">large</option>
+          <option value="large">Large</option>
         </select>
       </div>
       <div class="form-group">
@@ -29,12 +29,14 @@
         </select>
       </div>
       <button type="button" class="btn btn-primary" id="add-topping">Add Topping</button>
+      <button type="button" class="btn btn-warning" id="clear-toppings">Clear Toppings</button>
+      <button type="submit" class="btn btn-dark">Submit Order</button>
+      <button type="submit" class="btn btn-info" id="clear-order">Clear Order</button>
       <ul id="toppings-listed"></ul>
-      <p><button type="submit" class="btn btn-dark">Submit</button></p>
       <div id="final-order">
         <h3>Here are your order details:</h3>
         <p>Size: <span id="pizza-size"></span></p>
-        <p>Toppings: <span id="pizza-toppings"></span></p>
+        <p>Topping(s): <span id="pizza-toppings"></span></p>
         <p>Cost: <span id="pizza-cost"></span></p>
       </div>
     </form>

@@ -16,52 +16,66 @@ Pizza.prototype.pizzaSizeCost = function() {
   }
 }
 
-// Pizza.prototype.toppingsCost = function() {
-//   toppingsArray.forEach(function (topping) {
-//     if (topping === "cheese") {
-//       this.cost += 1;
-//     }
-//     if (topping === "artichokes") {
-//       this.cost += 2;
-//     }
-//     if (topping === "anchovies") {
-//       this.cost += 3;
-//     }
-//   });
-// }
+Pizza.prototype.toppingsCost = function() {
+  cost = this.cost;
+  toppingsArray.forEach(function (topping) {
+    if (topping === "cheese") {
+      cost += 1;
+    }
+    if (topping === "artichokes") {
+      cost += 2;
+    }
+    if (topping === "anchovies") {
+      cost += 3;
+    }
+  });
+  this.cost = cost;
+}
+
+Pizza.prototype.toppingList = function () {
+  for (let i = 0; i < toppingsArray.length; i++) {
+    toppingsArray[i] = toppingsArray[i] + ", ";
+    if (i === toppingsArray.length - 2) {
+      return toppingsArray[i];
+    }
+  }
+}
 
 let toppingsArray = [];
 
 $(document).ready(function () {
   
   $("#add-topping").click(function () {
+    $("ul#toppings-listed").show();
     let topping = $("select#topping").val();
-    console.log(topping);
     toppingsArray.push(topping);
-    console.log(toppingsArray);
-    $("ul#toppings-listed").prepend("<li>" + topping + "</li>");
+    $("ul#toppings-listed").prepend("<li class='list-item'>" + topping + "</li>");
+  });
+
+  $("#clear-toppings").click(function () {
+    toppingsArray = [];
+    $(".list-item").remove();
+  });
+
+  $("#clear-order").click(function () {
+    toppingsArray = [];
+    $(".list-item").remove();
+    $("#final-order").hide();
   });
 
   $("#order").submit(function (event) {
     event.preventDefault();
     const inputSize = $("select#size").val();
     const inputToppings = toppingsArray;
-    let inputCost = 0;
-    let myPizza = new Pizza (inputSize, inputToppings, inputCost);
+    let myPizza = new Pizza (inputSize, inputToppings);
     myPizza.pizzaSizeCost();
-    let finalCost = myPizza.cost
-    toppingsArray.forEach(function (topping) {
-      if (topping === "cheese") {
-        finalCost += 1;
-      }
-      if (topping === "artichokes") {
-        finalCost += 2;
-      }
-      if (topping === "anchovies") {
-        finalCost += 3;
-      }
-    });
-    // myPizza.toppingsCost();
-    console.log("final price: " + finalCost);
+    myPizza.toppingsCost();
+    myPizza.toppingList();
+    $("#final-order").show();
+    $("#pizza-size").html(inputSize);
+    $("#pizza-toppings").html(toppingsArray);
+    $("#pizza-cost").html(myPizza.cost);
+    toppingsArray = [];
+    $(".list-item").remove();
   });
 });
