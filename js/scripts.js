@@ -4,9 +4,9 @@ function Pizza (size, toppings, cost) {
   this.cost = cost;
 }
 
-Pizza.prototype.pizzaCost = function() {
+Pizza.prototype.pizzaSizeCost = function() {
   if (this.size === "small") {
-    this.cost = 8;
+    this.cost = 8; 
   }
   if (this.size === "medium") {
     this.cost = 10;
@@ -14,26 +14,31 @@ Pizza.prototype.pizzaCost = function() {
   if (this.size === "large") {
     this.cost = 12;
   }
-  toppingsArray.forEach(function (topping) {
-    if (this.topping === "cheese") {
-      this.cost += 1;
-    }
-    if (this.topping === "artichokes") {
-      this.cost += 2;
-    }
-    if (this.topping === "anchovies") {
-      this.cost += 3;
-    }
-  });
 }
+
+// Pizza.prototype.toppingsCost = function() {
+//   toppingsArray.forEach(function (topping) {
+//     if (topping === "cheese") {
+//       this.cost += 1;
+//     }
+//     if (topping === "artichokes") {
+//       this.cost += 2;
+//     }
+//     if (topping === "anchovies") {
+//       this.cost += 3;
+//     }
+//   });
+// }
+
+let toppingsArray = [];
 
 $(document).ready(function () {
   
-  let toppingsArray = [];
-  
   $("#add-topping").click(function () {
     let topping = $("select#topping").val();
+    console.log(topping);
     toppingsArray.push(topping);
+    console.log(toppingsArray);
     $("ul#toppings-listed").prepend("<li>" + topping + "</li>");
   });
 
@@ -41,7 +46,22 @@ $(document).ready(function () {
     event.preventDefault();
     const inputSize = $("select#size").val();
     const inputToppings = toppingsArray;
-    let myPizza = new Pizza (inputSize, inputToppings);
+    let inputCost = 0;
+    let myPizza = new Pizza (inputSize, inputToppings, inputCost);
+    myPizza.pizzaSizeCost();
+    let finalCost = myPizza.cost
+    toppingsArray.forEach(function (topping) {
+      if (topping === "cheese") {
+        finalCost += 1;
+      }
+      if (topping === "artichokes") {
+        finalCost += 2;
+      }
+      if (topping === "anchovies") {
+        finalCost += 3;
+      }
+    });
+    // myPizza.toppingsCost();
+    console.log("final price: " + finalCost);
   });
-
 });
