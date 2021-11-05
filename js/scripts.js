@@ -34,6 +34,9 @@ Pizza.prototype.toppingsCost = function() {
 
 Pizza.prototype.toppingList = function () {
   for (let i = 0; i < toppingsArray.length; i++) {
+    if (toppingsArray.length === 1) {
+      return toppingsArray[0];
+    }
     toppingsArray[i] = toppingsArray[i] + ", ";
     if (i === toppingsArray.length - 2) {
       return toppingsArray[i];
@@ -57,7 +60,8 @@ $(document).ready(function () {
     $(".list-item").remove();
   });
 
-  $("#clear-order").click(function () {
+  $("#clear-order").click(function (event) {
+    event.preventDefault();
     toppingsArray = [];
     $(".list-item").remove();
     $("#final-order").hide();
