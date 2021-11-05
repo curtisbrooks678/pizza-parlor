@@ -27,5 +27,13 @@ Pizza.prototype.pizzaCost = function () {
   });
 }
 
-
-
+$(document).ready(function () {
+  
+  let toppingsArray = [];
+  
+  $("#add-topping").click(function () {
+    let topping = $("select#topping").val();
+    toppingsArray.push(topping);
+    $("ul#toppings-listed").prepend("<li>" + topping + "</li>");
+  });
+});
