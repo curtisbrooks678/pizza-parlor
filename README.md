@@ -48,7 +48,7 @@ Functions:
 Describe: Pizza()
 
 Test: "It should return a Pizza object with properties on size, toppings, and cost"
-Code: const myPizza = new Pizza ("medium", , 14)
+Code: const myPizza = new Pizza ("medium", ["cheese", "olives"], 10)
 Expected Output: myPizza("medium", ["cheese", "olives"], 10)
 
 Describe: pizzaCost()
