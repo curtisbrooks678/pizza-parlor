@@ -10,28 +10,29 @@
 <body>
   <div class="container">
     <h1>Pizza Parlor</h1>
-    <h5>Select your pizza size and toppings</h5>
+    <p>Please select a pizza size, then add toppings to your current order by selecting the order in the dropdown menu and clicking the "Add Topping" button.</p>
+    <p>After submitting your current order, you can click the "New Order" button to start a new order.</p>
     <form id="order">
       <div class="form-group">
-        <label for="size">Select a size</label>
+        <label for="size">Select a pizza size</label>
         <select name="size" id="size" class="form-control">
-          <option value="small">Small</option>
-          <option value="medium">Medium</option>
-          <option value="large">Large</option>
+          <option value="Small">Small</option>
+          <option value="Medium">Medium</option>
+          <option value="Large">Large</option>
         </select>
       </div>
       <div class="form-group">
         <label for="topping">Select topping</label>
         <select name="topping" id="topping" class="form-control">
-          <option value="cheese">Cheese</option>
-          <option value="artichokes">Artichokes</option>
-          <option value="anchovies">Anchovies</option>
+          <option value="Vegan Cheese">Vegan Cheese</option>
+          <option value="Artichokes">Artichokes</option>
+          <option value="Vegan Pepperoni">Vegan Pepperoni</option>
         </select>
       </div>
       <button type="button" class="btn btn-primary" id="add-topping">Add Topping</button>
       <button type="button" class="btn btn-warning" id="clear-toppings">Clear Toppings</button>
-      <button type="submit" class="btn btn-dark">Submit Order</button>
-      <button type="submit" class="btn btn-info" id="clear-order">Clear Order</button>
+      <button type="submit" class="btn btn-dark" id="submit">Submit Order</button>
+      <button type="submit" class="btn btn-info" id="new-order">New Order</button>
       <ul id="toppings-listed"></ul>
       <div id="final-order">
         <h3>Here are your order details:</h3>

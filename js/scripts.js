@@ -5,13 +5,13 @@ function Pizza (size, toppings, cost) {
 }
 
 Pizza.prototype.pizzaSizeCost = function() {
-  if (this.size === "small") {
+  if (this.size === "Small") {
     this.cost = 8; 
   }
-  if (this.size === "medium") {
+  if (this.size === "Medium") {
     this.cost = 10;
   }
-  if (this.size === "large") {
+  if (this.size === "Large") {
     this.cost = 12;
   }
 }
@@ -19,13 +19,13 @@ Pizza.prototype.pizzaSizeCost = function() {
 Pizza.prototype.toppingsCost = function() {
   cost = this.cost;
   toppingsArray.forEach(function (topping) {
-    if (topping === "cheese") {
+    if (topping === "Vegan Cheese") {
       cost += 1;
     }
-    if (topping === "artichokes") {
+    if (topping === "Artichokes") {
       cost += 2;
     }
-    if (topping === "anchovies") {
+    if (topping === "Vegan Pepperoni") {
       cost += 3;
     }
   });
@@ -60,11 +60,15 @@ $(document).ready(function () {
     $(".list-item").remove();
   });
 
-  $("#clear-order").click(function (event) {
+  $("#new-order").click(function (event) {
     event.preventDefault();
     toppingsArray = [];
     $(".list-item").remove();
     $("#final-order").hide();
+    $("#add-topping").prop("disabled", false);
+    $("#clear-toppings").prop("disabled", false);
+    $("#order").prop("disabled", false);
+    $("#submit").prop("disabled", false);
   });
 
   $("#order").submit(function (event) {
@@ -81,5 +85,8 @@ $(document).ready(function () {
     $("#pizza-cost").html(myPizza.cost);
     toppingsArray = [];
     $(".list-item").remove();
+    $("#add-topping").prop("disabled", true);
+    $("#clear-toppings").prop("disabled", true);
+    $("#submit").prop("disabled", true);
   });
 });
