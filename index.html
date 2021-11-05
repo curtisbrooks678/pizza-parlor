@@ -8,6 +8,35 @@
   <title>Pizza Parlor</title>
 </head>
 <body>
-
+  <div class="container">
+    <h1>Select your pizza size and toppings</h1>
+    <form id="order">
+      <div class="form-group">
+        <label for="size">Select a size</label>
+        <select name="size" id="size" class="form-control">
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">large</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="toppings">Select toppings</label>
+        <select name="toppings" id="toppings" class="form-control">
+          <option value="small">Small</option>
+          <option value="medium">Medium</option>
+          <option value="large">large</option>
+        </select>
+      </div>
+      <button type="button" class="btn btn-primary">Add Topping</button>
+      <ul id="toppings-listed"></ul>
+      <button type="submit">Submit</button>
+      <div id="final-order">
+        <h3>Here are your order details:</h3>
+        <p>Size: <span id="pizza-size"></span></p>
+        <p>Toppings: <span id="pizza-toppings"></span></p>
+        <p>Cost: <span id="pizza-cost"></span></p>
+      </div>
+    </form>
+  </div>
 </body>
 </html>
