@@ -34,9 +34,6 @@ _______________________
 
 TESTS
 
-Functions:
-- pizzaCost() - evaluate cost based on size and topping selections
-
 Describe: Pizza()
 
 Test: "It should return a Pizza object with properties on size, toppings, and cost"
