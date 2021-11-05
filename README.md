@@ -2,7 +2,7 @@
 
 #### By Curtis Brooks
 
-#### This application takes a user's pizza order and shows the cost based on topping selection.
+#### This application takes a user's pizza order and shows the cost based on size and topping selection.
 
 ## Technologies Used
 
