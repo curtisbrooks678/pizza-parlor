@@ -37,3 +37,25 @@ _{Leave nothing to chance! You want it to be easy for potential users, employers
 _{Let people know what to do if they run into any issues or have questions, ideas or concerns.  Encourage them to contact you or make a contribution to the code.}_
 
 Copyright (c) _date_ Curtis Brooks
+
+_______________________
+
+TESTS
+
+Functions:
+- pizzaCost() - evaluate cost based on size and topping selections
+
+Describe: Pizza()
+
+Test: "It should return a Pizza object with properties on size, toppings, and cost"
+Code: const myPizza = new Pizza ("medium", ["cheese", "olives"], 14)
+Expected Output: myPizza("medium", ["cheese", "olives"], 10)
+
+Describe: pizzaCost()
+
+Test: "It will evaluate a pizza's cost based on a Pizza object's size and toppings properties"
+Code: myPizza.pizzaCost()
+Expected Output: 14
+
+
+
