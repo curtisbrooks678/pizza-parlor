@@ -11,6 +11,7 @@
   <div class="container">
     <h1>Pizza Parlor</h1>
     <p>Please select a pizza size, then add toppings to your current order by selecting the order in the dropdown menu and clicking the "Add Topping" button.</p>
+    <p>If you'd like to change the toppings on your current order, click the "Clear Toppings" button.</p>
     <p>After submitting your current order, you can click the "New Order" button to start a new order.</p>
     <form id="order">
       <div class="form-group">
@@ -35,7 +36,8 @@
       <button type="submit" class="btn btn-info" id="new-order">New Order</button>
       <ul id="toppings-listed"></ul>
       <div id="final-order">
-        <h3>Here are your order details:</h3>
+        <h3>Thank you for your order!</h3> 
+        <h6>Here are your order details:</h6>
         <p>Size: <span id="pizza-size"></span></p>
         <p>Topping(s): <span id="pizza-toppings"></span></p>
         <p>Cost: <span id="pizza-cost"></span></p>
